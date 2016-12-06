@@ -25,6 +25,7 @@ function walk(node) {
 }
  
 function brazify(textNode) {
+	//Something wrong with logic in this function. Script stops brazifying as soon as non-brazy sound is encountered
     var v = textNode.nodeValue;
 	if (v.match(/ck/g)) {
 		v = v.replace("ck", "b");
