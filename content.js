@@ -18,16 +18,25 @@ function walk(node) {
  
         case 3: // Text node
             if (node.parentElement.tagName.toLowerCase() != "script") {
-                handleText(node);
+                brazify(node);
             }
             break;
     }
 }
  
-function handleText(textNode) {
+function brazify(textNode) {
     var v = textNode.nodeValue;
- 
-    v = v.replace(/c/gi, "b");
+	if (v.match(/ck/g)) {
+		v = v.replace("ck", "b");
+	}
+	else if (v.match(/sc/gi)||v.match(/ch/gi)) {
+		//The SC and CH sounds aren't brazy, my dudes
+	}
+    else {
+		v = v.replace(/c/g, "b");
+		v = v.replace(/C/g, "B");
+	}
+
 	
     textNode.nodeValue = v;
 }
