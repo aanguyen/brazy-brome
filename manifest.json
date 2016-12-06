@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Brazy Brome",
+  "description": "Make your Google Brome brazier than ever!",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "brazy.png",
+    "default_popup": "brazy.html",
+    "default_title": ""
+  },
+  "content_scripts": [
+    {
+		"matches": [
+        "*://*/*"
+            ],
+      "js": ["content.js"],
+	  "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}
